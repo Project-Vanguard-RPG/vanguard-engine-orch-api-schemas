@@ -3,8 +3,9 @@ from typing import Literal
 from uuid import UUID
 
 
-type Status = Literal["running", "stopped", "error", "pending"]
-
+class Status(BaseModel):
+    state:Literal["running", "stopped", "error", "pending", "starting"]
+    healthy:bool
 
 class SessionInfo(BaseModel):
     sessionid: UUID
